@@ -57,7 +57,7 @@ export default function App() {
     <Provider store={store}>
       <NativeBaseProvider>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="Onboarding">
+          <Stack.Navigator initialRouteName="MyTabs">
             <Stack.Screen
               name="Login"
               component={Login}
