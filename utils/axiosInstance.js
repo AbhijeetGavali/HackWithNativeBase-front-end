@@ -1,8 +1,8 @@
 import axios from "axios";
 import { API } from "../config";
 
-const axiosIstance = axios.create({
+const axiosInstance = axios.create({
   baseURL: API,
 });
 
-export default axiosIstance;
+export default axiosInstance;
