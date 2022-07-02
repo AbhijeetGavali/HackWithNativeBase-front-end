@@ -1,14 +1,4 @@
-import {
-  Text,
-  HStack,
-  Heading,
-  VStack,
-  Box,
-  Avatar,
-  FlatList,
-  Spacer,
-  Pressable,
-} from "native-base";
+import { Text, Heading, Box, FlatList, Pressable } from "native-base";
 
 import { SafeAreaView } from "react-native";
 
@@ -22,8 +12,8 @@ function Dashboard({ navigation }) {
       _id: "7890",
       ownerId: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
       type: "img",
-      fUrl: "",
-      bUrl: "",
+      fUrl: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
+      bUrl: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
     },
     {
       _id: "1234",
@@ -45,8 +35,9 @@ function Dashboard({ navigation }) {
       type: "business",
       versionNo: 0,
       name: "Ineuron pvl ltd",
-      logo: "",
-      imgUrl: "",
+      logo: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
+      imgUrl:
+        "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
       details: {
         email: { show: true, value: "hackthon@gmail.com" },
         phoneNo: { show: false },
@@ -68,26 +59,88 @@ function Dashboard({ navigation }) {
               <>
                 <BusinessCardCoursole key={item._id} data={item} />
                 <Pressable
+                  style={{
+                    position: "absolute",
+                    bottom: 10,
+                    right: 20,
+                    left: 20,
+                    zIndex: 100,
+                    alignItems: "flex-end",
+                    shadowColor: "black",
+                    shadowOpacity: 1,
+                    shadowOffset: { x: 10, y: 10 },
+                    shadowRadius: 10,
+                  }}
                   onPress={() => navigation.navigate("BusinessFullCard")}
                 >
-                  <Text>View Full</Text>
+                  <Text
+                    style={{
+                      color: "#fff",
+                      bottom: 10,
+                      right: 25,
+                    }}
+                  >
+                    View Full
+                  </Text>
                 </Pressable>
               </>
             ) : item.type === "personal" ? (
               <>
                 <PersonalCardCoursole key={item._id} data={item} />
                 <Pressable
+                  style={{
+                    position: "absolute",
+                    bottom: 10,
+                    right: 20,
+                    left: 20,
+                    zIndex: 100,
+                    alignItems: "flex-end",
+                    shadowColor: "black",
+                    shadowOpacity: 1,
+                    shadowOffset: { x: 10, y: 10 },
+                    shadowRadius: 10,
+                  }}
                   onPress={() => navigation.navigate("PersonalFullCard")}
                 >
-                  <Text>View Full</Text>
+                  <Text
+                    style={{
+                      color: "#fff",
+                      bottom: 10,
+                      right: 25,
+                    }}
+                  >
+                    View Full
+                  </Text>
                 </Pressable>
               </>
             ) : (
               <>
-                <ImageCardCoursole key={item._id} data={item} />
-                <Pressable onPress={() => navigation.navigate("ImageFullCard")}>
-                  <Text>View Full</Text>
+                <Pressable
+                  style={{
+                    position: "absolute",
+                    bottom: 10,
+                    right: 20,
+                    left: 20,
+                    zIndex: 100,
+                    alignItems: "flex-end",
+                    shadowColor: "black",
+                    shadowOpacity: 1,
+                    shadowOffset: { x: 10, y: 10 },
+                    shadowRadius: 10,
+                  }}
+                  onPress={() => navigation.navigate("ImageFullCard")}
+                >
+                  <Text
+                    style={{
+                      color: "#fff",
+                      bottom: 10,
+                      right: 25,
+                    }}
+                  >
+                    View Full
+                  </Text>
                 </Pressable>
+                <ImageCardCoursole key={item._id} data={item} />
               </>
             )
           }
