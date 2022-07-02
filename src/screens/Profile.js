@@ -1,8 +1,10 @@
-import { StyleSheet, Text, TextInput, View, ScrollView } from "react-native";
+import { StyleSheet, Text, TextInput, View, ScrollView, SafeAreaView } from "react-native";
 import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
-import { Box, Button, FormControl, Input } from "native-base";
+import { Box, Button, Center, FormControl, Input,Image } from "native-base";
 import * as ImagePicker from "expo-image-picker";
+import { StatusBar } from 'expo-status-bar';
+
 const Profile = ({ navigation }) => {
   const [image, setImage] = useState(null);
   const pickImage = async () => {
@@ -27,6 +29,15 @@ const Profile = ({ navigation }) => {
   } = useForm();
   return (
     <ScrollView>
+      <StatusBar style='auto' />
+      <SafeAreaView>
+        <Center>
+          <Image 
+            source={require('/Users/avishkar/HackWithNativeBase-front-end/assets/adaptive-icon.png')}
+            w={100}
+            h={100}
+          />
+        </Center>
       <FormControl isRequired isInvalid={"name" in errors} mx={5}
               mb={3}>
         <FormControl.Label
@@ -327,6 +338,7 @@ const Profile = ({ navigation }) => {
       </FormControl>
       <Button onPress={pickImage}>Choose Logo</Button>
       <Button onPress={pickImage}>Make A card</Button>
+      </SafeAreaView>
     </ScrollView>
   );
 };

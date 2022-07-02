@@ -13,7 +13,7 @@ import {
   Box,
 } from "native-base";
 import NativeBaseIcon from "./components/NativeBaseIcon";
-import { Platform } from "react-native";
+import { Platform,StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Provider } from "react-redux";
@@ -25,6 +25,8 @@ import Dashboard from "./src/screens/Dashboard";
 import BusinessFullCard from "./src/screens/BusinessFullCard";
 import PersonalFullCard from "./src/screens/PersonalFullCard";
 import ImageFullCard from "./src/screens/ImageFullCard";
+import Entypo from 'react-native-vector-icons/Entypo'
+import FontAwesome from 'react-native-vector-icons/FontAwesome'
 // Define the config
 const config = {
   useSystemColorMode: false,
@@ -46,9 +48,31 @@ const Tab = createBottomTabNavigator();
 
 function MyTabs() {
   return (
-    <Tab.Navigator>
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Profile" component={Profile} />
+    <Tab.Navigator 
+    screenOptions={{
+      tabBarShowLabel:false,
+      headerShown:false,
+      tabBarActiveTintColor:'#FFF',
+      tabBarInactiveTintColor:'#000000',
+      tabBarStyle:styles.tabBar
+
+    }}
+    >
+      <Tab.Screen name="Dashboard" component={Dashboard} 
+        options={{
+          tabBarIcon:({color})=><Entypo name='home' size={30} color={color} />
+        }}
+      />
+      <Tab.Screen name="Home" component={Home}  
+        options={{
+          tabBarIcon:({})=><Entypo name='camera' size={30} />
+        }}
+      />
+      <Tab.Screen name="Profile" component={Profile} 
+      options={{
+        tabBarIcon:({color})=><FontAwesome name='user' size={30} color={color}/>
+      }}
+      />
     </Tab.Navigator>
   );
 }
@@ -165,3 +189,11 @@ function ToggleDarkMode() {
     </HStack>
   );
 }
+
+const styles = StyleSheet.create({
+  tabBar:{
+    backgroundColor:'#5E6FD3',
+    borderTopRightRadius:20,
+    borderTopLeftRadius:20,
+  }
+})

@@ -77,7 +77,7 @@ const BusinessCardFroent1 = ({ data }) => {
       <Box
         maxW="80"
         width="336"
-        height="200"
+        height="192"
         rounded="lg"
         overflow="hidden"
         borderColor="coolGray.200"
@@ -99,23 +99,23 @@ const BusinessCardFroent1 = ({ data }) => {
           _text={{
             fontSize: "md",
             fontWeight: "medium",
-            color: "warmGray.50",
+            color: '#000',
             textAlign: "center",
           }}
         >
           <View
             alignItems="center"
             justifyContent={"center"}
-            background="info.600"
+            background="#242B2E"
             height="100%"
           >
             <Center
-              bg="violet.500"
+              bg="#ffff"
               _dark={{
                 bg: "violet.400",
               }}
               _text={{
-                color: "warmGray.50",
+                color: "#FFD700",
                 fontWeight: "700",
                 fontSize: "xs",
               }}
@@ -133,7 +133,7 @@ const BusinessCardFroent1 = ({ data }) => {
                 borderRadius={50}
               />
             </Center>
-            <Heading color="emerald.400" marginTop={3}>
+            <Heading color="#FFD700" marginTop={3}>
               {data.name}
             </Heading>
           </View>

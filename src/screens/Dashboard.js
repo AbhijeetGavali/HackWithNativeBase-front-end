@@ -1,12 +1,15 @@
-import { Text, Heading, Box, FlatList, Pressable } from "native-base";
+import { Text, Heading, Box, FlatList, Pressable, HStack } from "native-base";
 
-import { SafeAreaView } from "react-native";
+import { SafeAreaView, TouchableOpacity } from "react-native";
+import { StatusBar } from 'expo-status-bar';
 
 import React from "react";
 import BusinessCardCoursole from "../components/BusinessCardCoursole";
 import PersonalCardCoursole from "../components/PersonalCardCoursole";
 import ImageCardCoursole from "../components/ImageCardCoursole";
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 function Dashboard({ navigation }) {
+
   const data = [
     {
       _id: "7890",
@@ -49,9 +52,15 @@ function Dashboard({ navigation }) {
   return (
     <SafeAreaView>
       <Box>
+        <HStack alignItems={'center'} justifyContent={'space-between'} mx={5} mr={7} >
         <Heading fontSize="xl" p="4" pb="3">
           Cards Shared with you
         </Heading>
+        <TouchableOpacity>        
+          <MaterialCommunityIcons name="qrcode" size={32}/>
+          </TouchableOpacity>
+
+        </HStack>
         <FlatList
           data={data}
           renderItem={({ item }) =>
