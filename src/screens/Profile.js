@@ -27,8 +27,11 @@ const Profile = ({ navigation }) => {
   } = useForm();
   return (
     <ScrollView>
-      <FormControl isRequired isInvalid={"name" in errors}>
-        <FormControl.Label>Name</FormControl.Label>
+      <FormControl isRequired isInvalid={"name" in errors} mx={5}
+              mb={3}>
+        <FormControl.Label
+        _text={{fontSize:"xl"}}
+        >Name</FormControl.Label>
         <Controller
           control={control}
           render={({ field: { onChange, onBlur, value } }) => (
@@ -37,6 +40,10 @@ const Profile = ({ navigation }) => {
               placeholder="Harshad Birajdar"
               onChangeText={(val) => onChange(val)}
               value={value}
+              height={50}
+              size={'lg'}
+              alignItems={'center'}
+              width={"90%"}
             />
           )}
           name="name"
@@ -49,8 +56,11 @@ const Profile = ({ navigation }) => {
           {errors.name?.message}
         </FormControl.ErrorMessage>
       </FormControl>
-      <FormControl isRequired isInvalid={"companyName" in errors}>
-        <FormControl.Label>Company Name</FormControl.Label>
+      <FormControl isRequired isInvalid={"companyName" in errors}
+        mx={5}
+        mb={3}
+      >
+        <FormControl.Label  _text={{fontSize:"xl"}}>Company Name</FormControl.Label>
         <Controller
           control={control}
           render={({ field: { onChange, onBlur, value } }) => (
@@ -59,6 +69,11 @@ const Profile = ({ navigation }) => {
               placeholder="Gratus Tech"
               onChangeText={(val) => onChange(val)}
               value={value}
+              height={50}
+              size={'lg'}
+              alignItems={'center'}
+              width={"90%"}
+
             />
           )}
           name="companyName"
@@ -72,8 +87,11 @@ const Profile = ({ navigation }) => {
         </FormControl.ErrorMessage>
       </FormControl>
 
-      <FormControl isRequired isInvalid={"jobTitle" in errors}>
-        <FormControl.Label>Job Title</FormControl.Label>
+      <FormControl isRequired isInvalid={"jobTitle" in errors}
+      mx={5}
+      mb={3}
+      >
+        <FormControl.Label _text={{fontSize:"xl"}}>Job Title</FormControl.Label>
         <Controller
           control={control}
           render={({ field: { onChange, onBlur, value } }) => (
@@ -82,6 +100,12 @@ const Profile = ({ navigation }) => {
               placeholder="Marketing Manager"
               onChangeText={(val) => onChange(val)}
               value={value}
+              width={"90%"}
+
+              
+              height={50}
+              size={'lg'}
+              alignItems={'center'}
             />
           )}
           name="jobTitle"
@@ -94,8 +118,11 @@ const Profile = ({ navigation }) => {
           {errors.jobTitle?.message}
         </FormControl.ErrorMessage>
       </FormControl>
-      <FormControl isRequired isInvalid={"phoneNumber" in errors}>
-        <FormControl.Label>Phone Number</FormControl.Label>
+      <FormControl isRequired isInvalid={"phoneNumber" in errors}
+      mx={5}
+      mb={3}
+      >
+        <FormControl.Label _text={{fontSize:"xl"}}>Phone Number</FormControl.Label>
         <Controller
           control={control}
           render={({ field: { onChange, onBlur, value } }) => (
@@ -104,6 +131,11 @@ const Profile = ({ navigation }) => {
               placeholder="9876543210"
               onChangeText={(val) => onChange(val)}
               value={value}
+              width={"90%"}
+
+              height={50}
+              size={'lg'}
+              alignItems={'center'}
             />
           )}
           name="phoneNumber"
@@ -117,8 +149,11 @@ const Profile = ({ navigation }) => {
         </FormControl.ErrorMessage>
       </FormControl>
 
-      <FormControl isRequired isInvalid={"email" in errors}>
-        <FormControl.Label>Email Address</FormControl.Label>
+      <FormControl isRequired isInvalid={"email" in errors}
+      mx={5}
+      mb={3}
+      >
+        <FormControl.Label _text={{fontSize:"xl"}}>Email Address</FormControl.Label>
         <Controller
           control={control}
           render={({ field: { onChange, onBlur, value } }) => (
@@ -127,6 +162,11 @@ const Profile = ({ navigation }) => {
               placeholder="yourname@xyz.com"
               onChangeText={(val) => onChange(val)}
               value={value}
+              width={"90%"}
+
+              height={50}
+              size={'lg'}
+              alignItems={'center'}
             />
           )}
           name="email"
@@ -140,8 +180,11 @@ const Profile = ({ navigation }) => {
         </FormControl.ErrorMessage>
       </FormControl>
 
-      <FormControl isRequired isInvalid={"website" in errors}>
-        <FormControl.Label>Website</FormControl.Label>
+      <FormControl isRequired isInvalid={"website" in errors}
+      mx={5}
+      mb={3}
+      >
+        <FormControl.Label _text={{fontSize:"xl"}}>Website</FormControl.Label>
         <Controller
           control={control}
           render={({ field: { onChange, onBlur, value } }) => (
@@ -150,6 +193,12 @@ const Profile = ({ navigation }) => {
               placeholder="www.gratustech.com"
               onChangeText={(val) => onChange(val)}
               value={value}
+              width={"90%"}
+              
+              height={50}
+              size={'lg'}
+              alignItems={'center'}
+              mb={3}
             />
           )}
           name="website"
@@ -163,8 +212,11 @@ const Profile = ({ navigation }) => {
         </FormControl.ErrorMessage>
       </FormControl>
 
-      <FormControl isRequired isInvalid={"address" in errors}>
-        <FormControl.Label>Address</FormControl.Label>
+      <FormControl isRequired isInvalid={"address" in errors}
+      mx={5}
+      mb={3}
+      >
+        <FormControl.Label _text={{fontSize:"xl"}}>Address</FormControl.Label>
         <Controller
           control={control}
           render={({ field: { onChange, onBlur, value } }) => (
@@ -173,6 +225,11 @@ const Profile = ({ navigation }) => {
               placeholder="www.gratustech.com"
               onChangeText={(val) => onChange(val)}
               value={value}
+              width={"90%"}
+
+              height={50}
+              size={'lg'}
+              alignItems={'center'}
             />
           )}
           name="address"
@@ -185,8 +242,11 @@ const Profile = ({ navigation }) => {
           {errors.address?.message}
         </FormControl.ErrorMessage>
       </FormControl>
-      <FormControl isRequired isInvalid={"desc" in errors}>
-        <FormControl.Label>Description</FormControl.Label>
+      <FormControl isRequired isInvalid={"desc" in errors}
+      mx={5}
+      mb={3}
+      >
+        <FormControl.Label _text={{fontSize:"xl"}}>Description</FormControl.Label>
         <Controller
           control={control}
           render={({ field: { onChange, onBlur, value } }) => (
@@ -195,6 +255,11 @@ const Profile = ({ navigation }) => {
               placeholder="some description"
               onChangeText={(val) => onChange(val)}
               value={value}
+              width={"90%"}
+
+              height={50}
+              size={'lg'}
+              alignItems={'center'}
             />
           )}
           name="desc"
@@ -205,8 +270,11 @@ const Profile = ({ navigation }) => {
         </FormControl.ErrorMessage>
       </FormControl>
 
-      <FormControl isInvalid={"instagram" in errors}>
-        <FormControl.Label>Instagram</FormControl.Label>
+      <FormControl isInvalid={"instagram" in errors}
+      mx={5}
+      mb={3}
+      >
+        <FormControl.Label _text={{fontSize:"xl"}}>Instagram</FormControl.Label>
         <Controller
           control={control}
           render={({ field: { onChange, onBlur, value } }) => (
@@ -215,6 +283,11 @@ const Profile = ({ navigation }) => {
               placeholder="https://instagram.com/gratustech"
               onChangeText={(val) => onChange(val)}
               value={value}
+              width={"90%"}
+
+              height={50}
+              size={'lg'}
+              alignItems={'center'}
             />
           )}
           name="instagram"
@@ -224,8 +297,11 @@ const Profile = ({ navigation }) => {
           {errors.instagram?.message}
         </FormControl.ErrorMessage>
       </FormControl>
-      <FormControl isInvalid={"linkdin" in errors}>
-        <FormControl.Label>Linkdin</FormControl.Label>
+      <FormControl isInvalid={"linkdin" in errors}
+      mx={5}
+      mb={3}
+      >
+        <FormControl.Label _text={{fontSize:"xl"}}>Linkdin</FormControl.Label>
         <Controller
           control={control}
           render={({ field: { onChange, onBlur, value } }) => (
@@ -234,7 +310,13 @@ const Profile = ({ navigation }) => {
               placeholder="https://www.linkedin.com/gratustech"
               onChangeText={(val) => onChange(val)}
               value={value}
+              width={"90%"}
+
+              height={50}
+              size={'lg'}
+              alignItems={'center'}
             />
+
           )}
           name="linkdin"
           defaultValue=""
