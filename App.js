@@ -22,6 +22,9 @@ import Register from "./src/screens/Register";
 import Home from "./src/screens/Home";
 import Profile from "./src/screens/Profile";
 import Dashboard from "./src/screens/Dashboard";
+import BusinessFullCard from "./src/screens/BusinessFullCard";
+import PersonalFullCard from "./src/screens/PersonalFullCard";
+import ImageFullCard from "./src/screens/ImageFullCard";
 // Define the config
 const config = {
   useSystemColorMode: false,
@@ -83,6 +86,21 @@ export default function App() {
             <Stack.Screen
               name="Dashboard"
               component={Dashboard}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="BusinessFullCard"
+              component={BusinessFullCard}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="PersonalFullCard"
+              component={PersonalFullCard}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="ImageFullCard"
+              component={ImageFullCard}
               options={{ headerShown: false }}
             />
           </Stack.Navigator>

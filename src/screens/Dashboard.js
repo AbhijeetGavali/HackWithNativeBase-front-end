@@ -7,6 +7,7 @@ import {
   Avatar,
   FlatList,
   Spacer,
+  Pressable,
 } from "native-base";
 
 import { SafeAreaView } from "react-native";
@@ -15,7 +16,7 @@ import React from "react";
 import BusinessCardCoursole from "../components/BusinessCardCoursole";
 import PersonalCardCoursole from "../components/PersonalCardCoursole";
 import ImageCardCoursole from "../components/ImageCardCoursole";
-function Dashboard() {
+function Dashboard({ navigation }) {
   const data = [
     {
       _id: "7890",
@@ -64,11 +65,30 @@ function Dashboard() {
           data={data}
           renderItem={({ item }) =>
             item.type === "business" ? (
-              <BusinessCardCoursole key={item._id} data={item} />
+              <>
+                <BusinessCardCoursole key={item._id} data={item} />
+                <Pressable
+                  onPress={() => navigation.navigate("BusinessFullCard")}
+                >
+                  <Text>View Full</Text>
+                </Pressable>
+              </>
             ) : item.type === "personal" ? (
-              <PersonalCardCoursole key={item._id} data={item} />
+              <>
+                <PersonalCardCoursole key={item._id} data={item} />
+                <Pressable
+                  onPress={() => navigation.navigate("PersonalFullCard")}
+                >
+                  <Text>View Full</Text>
+                </Pressable>
+              </>
             ) : (
-              <ImageCardCoursole key={item._id} data={item} />
+              <>
+                <ImageCardCoursole key={item._id} data={item} />
+                <Pressable onPress={() => navigation.navigate("ImageFullCard")}>
+                  <Text>View Full</Text>
+                </Pressable>
+              </>
             )
           }
           keyExtractor={(item) => item._id}
