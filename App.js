@@ -36,6 +36,7 @@ import Login from "./src/screens/Login";
 import store from "./src/redux/store";
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import MakeCard from "./src/screens/MakeCard";
 
 const Tab = createBottomTabNavigator();
 
@@ -72,6 +73,10 @@ export default function App() {
               name="MyTabs"
               component={MyTabs}
               options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="MakeCard"
+              component={MakeCard}
             />
           </Stack.Navigator>
         </NavigationContainer>
