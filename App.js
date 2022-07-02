@@ -16,6 +16,8 @@ import NativeBaseIcon from "./components/NativeBaseIcon";
 import { Platform } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { Provider } from "react-redux";
+
 // Define the config
 const config = {
   useSystemColorMode: false,
@@ -28,16 +30,19 @@ export const theme = extendTheme({ config });
 
 // all screens
 import Login from "./src/screens/Login";
+import store from "./src/redux/store";
 
 export default function App() {
   return (
-    <NativeBaseProvider>
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="Login" component={Login} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </NativeBaseProvider>
+    <Provider store={store}>
+      <NativeBaseProvider>
+        <NavigationContainer>
+          <Stack.Navigator>
+            <Stack.Screen name="Login" component={Login} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </NativeBaseProvider>
+    </Provider>
   );
 }
 const HomeScreen = () => {
