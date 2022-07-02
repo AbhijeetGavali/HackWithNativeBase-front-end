@@ -3,9 +3,9 @@ import React from 'react'
 
 const Register = () => {
   return (
-    <SafeAreaView>
+    <View>
       <Text>Register</Text>
-    </SafeAreaView>
+    </View>
   )
 }
 

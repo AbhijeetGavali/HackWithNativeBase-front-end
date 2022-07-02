@@ -11,7 +11,7 @@ import {
 
 const Login = ({ navigation }) => {
   return (
-    <SafeAreaView>
+    <View>
       <Center
         _dark={{ bg: "blueGray.900" }}
         _light={{ bg: "blueGray.50" }}
@@ -36,11 +36,11 @@ const Login = ({ navigation }) => {
             >
               Atleast 6 characters are required.
             </FormControl.ErrorMessage>
-            <Button onPress={() => navigation.navigate("Home")}>Login</Button>
+            <Button onPress={() => navigation.navigate("MyTabs")}>Login</Button>
           </Stack>
         </FormControl>
       </Center>
-    </SafeAreaView>
+    </View>
   );
 };
 

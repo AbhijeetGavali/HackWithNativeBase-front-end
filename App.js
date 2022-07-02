@@ -20,6 +20,7 @@ import { Provider } from "react-redux";
 import Onboarding from "./src/screens/Onboarding";
 import Register from "./src/screens/Register";
 import Home from "./src/screens/Home";
+import Profile from "./src/screens/Profile";
 // Define the config
 const config = {
   useSystemColorMode: false,
@@ -34,6 +35,18 @@ export const theme = extendTheme({ config });
 import Login from "./src/screens/Login";
 import store from "./src/redux/store";
 
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+const Tab = createBottomTabNavigator();
+
+function MyTabs() {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Home" component={Home} />
+      <Tab.Screen name="Profile" component={Profile} />
+    </Tab.Navigator>
+  );
+}
 export default function App() {
   return (
     <Provider store={store}>
@@ -56,8 +69,8 @@ export default function App() {
               options={{ headerShown: false }}
             />
             <Stack.Screen
-              name="Home"
-              component={Home}
+              name="MyTabs"
+              component={MyTabs}
               options={{ headerShown: false }}
             />
           </Stack.Navigator>

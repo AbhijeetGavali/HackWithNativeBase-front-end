@@ -4,14 +4,14 @@ import { Button } from 'native-base'
 
 const Onboarding = ({ navigation }) => {
   return (
-    <SafeAreaView >
+    <View >
       <Button borderRadius={5}
          onPress={() => navigation.navigate('Login')}
       >Login</Button>
       <Button
          onPress={() => navigation.navigate('Register')}
       >Register</Button>
-    </SafeAreaView>
+    </View>
   )
 }
 
