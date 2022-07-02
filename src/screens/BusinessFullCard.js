@@ -31,13 +31,14 @@ export default function BusinessFullCard() {
     type: "business",
     name: "Ineuron pvl ltd",
     business: "IT COMPANY",
-    logo: "",
+    logo: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
     description:
       "A company description is an overview or summary of a business. It's an important part of a business plan that often briefly describes an organization's history, location, mission statement, management personnel and, when appropriate, legal structure",
     address: "",
     userName: "Alien matre",
     userDesignation: "software developer @ ineuron",
-    imgUrl: "",
+    imgUrl:
+      "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
     details: {
       email: { show: true, value: "hackthon@gmail.com" },
       phoneNo: { show: false },
@@ -53,12 +54,15 @@ export default function BusinessFullCard() {
   return (
     <SafeAreaView>
       <Box alignItems="center">
+        <BusinessCardCoursole data={data} />
         <Box
           maxW="80"
           rounded="lg"
           overflow="hidden"
           borderColor="coolGray.200"
+          marginTop={5}
           borderWidth="1"
+          shadow={5}
           _dark={{
             borderColor: "coolGray.600",
             backgroundColor: "gray.700",
@@ -72,9 +76,6 @@ export default function BusinessFullCard() {
           }}
         >
           <Box>
-            <AspectRatio w="100%" ratio={1}>
-              <BusinessCardCoursole data={data} />
-            </AspectRatio>
             <Center
               bg="violet.500"
               _dark={{
@@ -85,9 +86,6 @@ export default function BusinessFullCard() {
                 fontWeight: "700",
                 fontSize: "xs",
               }}
-              position="absolute"
-              bottom="0"
-              px="3"
               py="1.5"
             >
               {data.business}
