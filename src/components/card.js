@@ -3,8 +3,9 @@ import React from 'react'
 
 const card = () => {
   return (
-    <View style={{height:192,width:336,backgroundColor:'#50DBB4',borderRadius:10}}>
-      <Text>card</Text>
+    <View style={{height:192,width:336,backgroundColor:'#242B2E',borderRadius:10}}>
+      <Text style={{color:'#ffff'}}>Name</Text>
+      <Text style={{color:'#ffff'}}>Designation</Text>
     </View>
   )
 }
