@@ -1,13 +1,14 @@
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView,ScrollView } from 'react-native'
 import React from 'react'
-
+import Card from '../components/Card'
 
 
 const Home = () => {
   return (
-    <View>
-      <Text>Home</Text>
-    </View>
+    <ScrollView>
+      <Card/>
+      
+    </ScrollView>
   )
 }
 
