@@ -1,6 +1,7 @@
 import { View, Text } from "react-native";
 import React from "react";
 import {
+  Button,
   Center,
   FormControl,
   Input,
@@ -18,6 +19,8 @@ const Login = () => {
     >
       <FormControl isRequired>
         <Stack mx="4">
+          <FormControl.Label>Username</FormControl.Label>
+          <Input placeholder="Username" />
           <FormControl.Label>Password</FormControl.Label>
           <Input type="password" defaultValue="12345" placeholder="password" />
           <FormControl.HelperText>
@@ -26,6 +29,9 @@ const Login = () => {
           <FormControl.ErrorMessage leftIcon={<WarningOutlineIcon size="xs" />}>
             Atleast 6 characters are required.
           </FormControl.ErrorMessage>
+          <Button>
+            Login
+          </Button>
         </Stack>
       </FormControl>
     </Center>

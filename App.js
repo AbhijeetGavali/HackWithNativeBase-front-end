@@ -18,6 +18,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Provider } from "react-redux";
 
+import Onboarding from "./src/screens/Onboarding";
+import Register from "./src/screens/Register";
 // Define the config
 const config = {
   useSystemColorMode: false,
@@ -34,15 +36,27 @@ import store from "./src/redux/store";
 
 export default function App() {
   return (
-    <Provider store={store}>
-      <NativeBaseProvider>
-        <NavigationContainer>
-          <Stack.Navigator>
-            <Stack.Screen name="Login" component={Login} />
-          </Stack.Navigator>
-        </NavigationContainer>
-      </NativeBaseProvider>
-    </Provider>
+    <NativeBaseProvider>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Onboarding">
+          <Stack.Screen
+            name="Login"
+            component={Login}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Onboarding"
+            component={Onboarding}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Register"
+            component={Register}
+            options={{ headerShown: false }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </NativeBaseProvider>
   );
 }
 const HomeScreen = () => {
