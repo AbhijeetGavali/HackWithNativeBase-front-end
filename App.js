@@ -21,6 +21,7 @@ import Onboarding from "./src/screens/Onboarding";
 import Register from "./src/screens/Register";
 import Home from "./src/screens/Home";
 import Profile from "./src/screens/Profile";
+import Dashboard from "./src/screens/Dashboard";
 // Define the config
 const config = {
   useSystemColorMode: false,
@@ -35,7 +36,7 @@ export const theme = extendTheme({ config });
 import Login from "./src/screens/Login";
 import store from "./src/redux/store";
 
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import MakeCard from "./src/screens/MakeCard";
 
 const Tab = createBottomTabNavigator();
@@ -77,6 +78,12 @@ export default function App() {
             <Stack.Screen
               name="MakeCard"
               component={MakeCard}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Dashboard"
+              component={Dashboard}
+              options={{ headerShown: false }}
             />
           </Stack.Navigator>
         </NavigationContainer>
