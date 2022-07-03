@@ -4,7 +4,7 @@ import { BarCodeScanner } from "expo-barcode-scanner";
 import { useDispatch } from "react-redux";
 import { scanCard } from "../redux/action/card";
 
-const Scanner = ({ navigation }) => {
+const Scanner = ({ navigateToHome }) => {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
   const dispatch = useDispatch();
@@ -21,7 +21,7 @@ const Scanner = ({ navigation }) => {
     if (!mongoRegex.test(data)) {
       return alert(`Please scan a valid QR code`);
     }
-    dispatch(scanCard(data, navigation));
+    dispatch(scanCard(data, navigateToHome, setScanned));
   };
 
   if (hasPermission === null) {

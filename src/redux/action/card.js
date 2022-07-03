@@ -22,14 +22,15 @@ const scanCardFail = (error) => ({
   payload: error,
 });
 
-export const scanCard = (id, navigation) => {
+export const scanCard = (id, navigateToHome, setScanned) => {
   return (dispatch) => {
     dispatch(scanCardStart());
     axiosInstance
       .post("/card/scan", { cardId: id })
       .then((response) => {
         dispatch(scanCardSuccess(response.data));
-        navigation.navigate("MyTabs");
+        navigateToHome();
+        setScanned(false);
       })
       .catch((err) => {
         dispatch(scanCardFail(err));
