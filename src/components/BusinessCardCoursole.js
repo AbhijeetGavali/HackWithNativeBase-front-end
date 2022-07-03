@@ -203,7 +203,7 @@ const BusinessCardBack1 = ({ data }) => {
               </View>
               <Divider my={2} height={"90%"} width={1} />
               <View width="60%" alignItems={"flex-start"} padding="2%">
-                <Heading color="coolGray.500" marginTop={3} marginBottom={2}>
+                <Heading color="coolGray.300" marginTop={3} marginBottom={2}>
                   {data.name}
                 </Heading>
                 <Text fontWeight="400">
@@ -213,7 +213,7 @@ const BusinessCardBack1 = ({ data }) => {
                       {data.details.email.value}
                     </Text>
                   ) : (
-                    <Text fontWeight="400" color="muted.700">
+                    <Text fontWeight="400" style={{ color: "gray" }}>
                       default@email.com
                     </Text>
                   )}
@@ -225,7 +225,7 @@ const BusinessCardBack1 = ({ data }) => {
                       {data.details.phoneNo.value}
                     </Text>
                   ) : (
-                    <Text fontWeight="400" color="muted.700">
+                    <Text fontWeight="400" style={{ color: "gray" }}>
                       1234567890
                     </Text>
                   )}
@@ -240,7 +240,7 @@ const BusinessCardBack1 = ({ data }) => {
                     </Link>
                   ) : (
                     <Link href={data.details.website.value}>
-                      <Text fontWeight="400" color="muted.700">
+                      <Text fontWeight="400" style={{ color: "gray" }}>
                         http://HelloWorld.com
                       </Text>
                     </Link>

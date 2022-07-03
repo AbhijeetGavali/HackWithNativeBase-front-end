@@ -1,10 +1,4 @@
-import {
-  Text,
-  Dimensions,
-  StyleSheet,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { Text, Dimensions, StyleSheet, TouchableOpacity } from "react-native";
 import Carousel from "react-native-anchor-carousel";
 const { width: windowWidth } = Dimensions.get("window");
 import React from "react";
@@ -81,8 +75,15 @@ const PersonalCardFroent1 = ({ data }) => {
 const PersonalCardBack1 = ({ data }) => {
   return (
     <Box alignItems="center">
-      <Box maxW="80" borderRadius={15} h={192} w={336} bg="#242B2E">
-        <Box borderRadius={15} mx={5} my={6} justifyContent={"space-between"}>
+      <Box
+        maxW="80"
+        borderRadius={15}
+        h={192}
+        w={336}
+        bg="#242B2E"
+        justifyContent={"center"}
+      >
+        <Box borderRadius={15} mx={5} justifyContent={"center"}>
           <Heading color="#FFF">{data.fullName}</Heading>
           <HStack mb={1}>
             <Text style={{ color: "#AF9D5A" }}>{data.designation}</Text>
