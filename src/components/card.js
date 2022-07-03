@@ -29,15 +29,11 @@ const Card = () => {
         </HStack>
       </Box>
     </View>
-    
-    
-  )
-}
+  );
+};
 const cardFront = () => {
-  return(
-    <></>
-  )
-}
+  return <></>;
+};
 const cardBack = () => {
   return(
    <></>
@@ -45,4 +41,4 @@ const cardBack = () => {
 }
 export default Card
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});
