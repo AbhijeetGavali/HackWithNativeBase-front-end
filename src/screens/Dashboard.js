@@ -21,7 +21,7 @@ function Dashboard({ navigation }) {
       fUrl: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
       bUrl: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
     },
-    
+
     {
       _id: "1234ss",
       ownerId: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
@@ -75,116 +75,114 @@ function Dashboard({ navigation }) {
         paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
       }}
     >
-      <Box>
-        <HStack
-          alignItems={"center"}
-          justifyContent={"space-between"}
-          mx={5}
-          mr={7}
-          shadowColor="black"
-        >
-          <Heading fontSize="xl">Cards Shared with you</Heading>
-          <TouchableOpacity>
-            <MaterialCommunityIcons name="qrcode" size={32} />
-          </TouchableOpacity>
-        </HStack>
-        <FlatList
-          data={data}
-          height={Platform.OS === "android" ? 675 : 685}
-          renderItem={({ item }) =>
-            item.type === "business" ? (
-              <>
-                <BusinessCardCoursole key={item._id} data={item} />
-                <Pressable
+      <HStack
+        alignItems={"center"}
+        justifyContent={"space-between"}
+        mx={5}
+        mr={7}
+        shadowColor="black"
+      >
+        <Heading fontSize="xl">Cards Shared with you</Heading>
+        <TouchableOpacity>
+          <MaterialCommunityIcons name="qrcode" size={32} />
+        </TouchableOpacity>
+      </HStack>
+      <FlatList
+        data={data}
+        height={Platform.OS === "android" ? 675 : 685}
+        renderItem={({ item }) =>
+          item.type === "business" ? (
+            <>
+              <BusinessCardCoursole key={item._id} data={item} />
+              <Pressable
+                style={{
+                  position: "absolute",
+                  bottom: 10,
+                  right: 20,
+                  left: 20,
+                  zIndex: 100,
+                  alignItems: "flex-end",
+                  shadowColor: "black",
+                  shadowOpacity: 1,
+                  shadowOffset: { x: 10, y: 10 },
+                  shadowRadius: 10,
+                }}
+                onPress={() => navigation.navigate("BusinessFullCard")}
+              >
+                <Text
                   style={{
-                    position: "absolute",
+                    color: "#fff",
                     bottom: 10,
-                    right: 20,
-                    left: 20,
-                    zIndex: 100,
-                    alignItems: "flex-end",
-                    shadowColor: "black",
-                    shadowOpacity: 1,
-                    shadowOffset: { x: 10, y: 10 },
-                    shadowRadius: 10,
+                    right: 25,
                   }}
-                  onPress={() => navigation.navigate("BusinessFullCard")}
                 >
-                  <Text
-                    style={{
-                      color: "#fff",
-                      bottom: 10,
-                      right: 25,
-                    }}
-                  >
-                    View Full
-                  </Text>
-                </Pressable>
-              </>
-            ) : item.type === "personal" ? (
-              <>
-                <PersonalCardCoursole key={item._id} data={item} />
-                <Pressable
+                  View Full
+                </Text>
+              </Pressable>
+            </>
+          ) : item.type === "personal" ? (
+            <>
+              <PersonalCardCoursole key={item._id} data={item} />
+              <Pressable
+                style={{
+                  position: "absolute",
+                  bottom: 10,
+                  right: 20,
+                  left: 20,
+                  zIndex: 100,
+                  alignItems: "flex-end",
+                  shadowColor: "black",
+                  shadowOpacity: 1,
+                  shadowOffset: { x: 10, y: 10 },
+                  shadowRadius: 10,
+                }}
+                onPress={() => navigation.navigate("PersonalFullCard")}
+              >
+                <Text
                   style={{
-                    position: "absolute",
+                    color: "#fff",
                     bottom: 10,
-                    right: 20,
-                    left: 20,
-                    zIndex: 100,
-                    alignItems: "flex-end",
-                    shadowColor: "black",
-                    shadowOpacity: 1,
-                    shadowOffset: { x: 10, y: 10 },
-                    shadowRadius: 10,
+                    right: 25,
                   }}
-                  onPress={() => navigation.navigate("PersonalFullCard")}
                 >
-                  <Text
-                    style={{
-                      color: "#fff",
-                      bottom: 10,
-                      right: 25,
-                    }}
-                  >
-                    View Full
-                  </Text>
-                </Pressable>
-              </>
-            ) : (
-              <>
-                <Pressable
+                  View Full
+                </Text>
+              </Pressable>
+            </>
+          ) : (
+            <>
+              <Pressable
+                style={{
+                  position: "absolute",
+                  bottom: 10,
+                  right: 20,
+                  left: 20,
+                  zIndex: 100,
+                  alignItems: "flex-end",
+                  shadowColor: "black",
+                  shadowOpacity: 1,
+                  shadowOffset: { x: 10, y: 10 },
+                  shadowRadius: 10,
+                }}
+                onPress={() => navigation.navigate("ImageFullCard")}
+              >
+                <Text
                   style={{
-                    position: "absolute",
+                    color: "#fff",
                     bottom: 10,
-                    right: 20,
-                    left: 20,
-                    zIndex: 100,
-                    alignItems: "flex-end",
-                    shadowColor: "black",
-                    shadowOpacity: 1,
-                    shadowOffset: { x: 10, y: 10 },
-                    shadowRadius: 10,
+                    right: 25,
                   }}
-                  onPress={() => navigation.navigate("ImageFullCard")}
                 >
-                  <Text
-                    style={{
-                      color: "#fff",
-                      bottom: 10,
-                      right: 25,
-                    }}
-                  >
-                    View Full
-                  </Text>
-                </Pressable>
-                <ImageCardCoursole key={item._id} data={item} />
-              </>
-            )
-          }
-          keyExtractor={(item) => item._id}
-          safeArea
-        />
-      </Box>
+                  View Full
+                </Text>
+              </Pressable>
+              <ImageCardCoursole key={item._id} data={item} />
+            </>
+          )
+        }
+        keyExtractor={(item) => item._id}
+        safeAreaBottom={true}
+      />
     </SafeAreaView>
   );
 }

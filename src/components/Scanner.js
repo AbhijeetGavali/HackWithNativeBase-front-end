@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Text, View, StyleSheet, Button } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
+import { useDispatch } from "react-redux";
+import { scanCard } from "../redux/action/card";
 
-const Scanner = () => {
+const Scanner = ({ navigateToHome }) => {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
-
+  const dispatch = useDispatch();
   useEffect(() => {
     (async () => {
       const { status } = await BarCodeScanner.requestPermissionsAsync();
@@ -15,7 +17,11 @@ const Scanner = () => {
 
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
-    alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+    let mongoRegex = /^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/i;
+    if (!mongoRegex.test(data)) {
+      return alert(`Please scan a valid QR code`);
+    }
+    dispatch(scanCard(data, navigateToHome, setScanned));
   };
 
   if (hasPermission === null) {
