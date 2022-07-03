@@ -1,11 +1,21 @@
-import { Text, Heading, Box, FlatList, Pressable, HStack } from "native-base";
+import {
+  Text,
+  Heading,
+  Box,
+  FlatList,
+  Pressable,
+  HStack,
+  Modal,
+  FormControl,
+  Button,
+} from "native-base";
+import QRCode from "react-native-qrcode-svg";
 
 import {
   SafeAreaView,
   TouchableOpacity,
   Platform,
   StatusBar,
-  Modal,
 } from "react-native";
 
 import React, { useEffect, useState } from "react";
@@ -137,20 +147,15 @@ function Dashboard({ navigation }) {
         }
         keyExtractor={(item) => item._id}
         safeAreaBottom={true}
-      />{" "}
+      />
       <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
         <Modal.Content maxWidth="400px">
           <Modal.CloseButton />
           <Modal.Header>Contact Us</Modal.Header>
           <Modal.Body>
-            <FormControl>
-              <FormControl.Label>Name</FormControl.Label>
-              <Input />
-            </FormControl>
-            <FormControl mt="3">
-              <FormControl.Label>Email</FormControl.Label>
-              <Input />
-            </FormControl>
+            <Box alignItems="center" justifyContent="center">
+              <QRCode value="62c0e564e894ca013f9bccf3" />
+            </Box>
           </Modal.Body>
           <Modal.Footer>
             <Button.Group space={2}>
