@@ -102,6 +102,7 @@ const Login = ({ navigation }) => {
                     height={50}
                     size={"lg"}
                     alignItems={"center"}
+                    secureTextEntry
                   />
                 )}
                 name="password"
