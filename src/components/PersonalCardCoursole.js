@@ -88,7 +88,7 @@ const PersonalCardBack1 = ({ data }) => {
             <Text style={{ color: "#AF9D5A" }}>{data.designation}</Text>
           </HStack>
           <Divider w={"70%"} />
-          <HStack alignItems={"center"} mt={4}>
+          <HStack alignItems={"center"} mt={3}>
             <Feather
               name="mail"
               size={20}
@@ -105,7 +105,7 @@ const PersonalCardBack1 = ({ data }) => {
               </Text>
             )}
           </HStack>
-          <HStack alignItems={"center"}>
+          <HStack alignItems={"center"} mt={1}>
             <Feather
               name="phone"
               size={20}
@@ -122,7 +122,7 @@ const PersonalCardBack1 = ({ data }) => {
               </Text>
             )}
           </HStack>
-          <HStack>
+          <HStack alignItems={"center"} mt={1}>
             <Feather
               name="external-link"
               size={18}
@@ -140,7 +140,7 @@ const PersonalCardBack1 = ({ data }) => {
             )}
           </HStack>
 
-          <HStack>
+          <HStack alignItems={"center"} mt={1}>
             <EvilIcons
               name="location"
               size={24}
