@@ -28,13 +28,14 @@ function Dashboard({ navigation }) {
       type: "personal",
       versionNo: 0,
       fullName: "Aafreen Khan",
-      designation: "software developer @ ineuron",
+      designation: "QA Test Engineer at Nvidia",
       imgUrl: "",
       details: {
         email: { show: true, value: "hackthon@gmail.com" },
         phoneNo: { show: true, value: "1234567890" },
         website: { show: false },
       },
+      address: "pune",
     },
     {
       _id: "7823",
