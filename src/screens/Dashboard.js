@@ -7,67 +7,75 @@ import {
   StatusBar,
 } from "react-native";
 
-import React from "react";
+import React, { useEffect } from "react";
 import BusinessCardCoursole from "../components/BusinessCardCoursole";
 import PersonalCardCoursole from "../components/PersonalCardCoursole";
 import ImageCardCoursole from "../components/ImageCardCoursole";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import { useDispatch, useSelector } from "react-redux";
+import { getCard } from "../redux/action/card";
 function Dashboard({ navigation }) {
-  const data = [
-    {
-      _id: "7890",
-      ownerId: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
-      type: "img",
-      fUrl: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
-      bUrl: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
-    },
+  // const data = [];
+  const data = useSelector((state) => state.card.cards);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getCard());
+  }, []);
+  // const data = [
+  //   {
+  //     _id: "7890",
+  //     ownerId: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
+  //     type: "img",
+  //     fUrl: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
+  //     bUrl: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
+  //   },
 
-    {
-      _id: "1234ss",
-      ownerId: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
-      type: "personal",
-      versionNo: 0,
-      fullName: "Aafreen Khan",
-      designation: "QA Test Engineer at Nvidia",
-      imgUrl: "",
-      details: {
-        email: { show: true, value: "hackthon@gmail.com" },
-        phoneNo: { show: true, value: "1234567890" },
-        website: { show: false },
-      },
-      address: "pune",
-    },
-    {
-      _id: "7823",
-      ownerId: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
-      type: "business",
-      versionNo: 0,
-      name: "Ineuron pvl ltd",
-      logo: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
-      imgUrl:
-        "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
-      details: {
-        email: { show: true, value: "hackthon@gmail.com" },
-        phoneNo: { show: false },
-        website: { show: true, value: "1234567890" },
-      },
-    },
-    {
-      _id: "782f3",
-      ownerId: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
-      type: "business",
-      versionNo: 0,
-      name: "Ineuron s ltd",
-      logo: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
-      imgUrl:
-        "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
-      details: {
-        email: { show: true, value: "hackthon@gmail.com" },
-        phoneNo: { show: false },
-        website: { show: true, value: "1234567890" },
-      },
-    },
-  ];
+  //   {
+  //     _id: "1234ss",
+  //     ownerId: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
+  //     type: "personal",
+  //     versionNo: 0,
+  //     fullName: "Aafreen Khan",
+  //     designation: "QA Test Engineer at Nvidia",
+  //     imgUrl: "",
+  //     details: {
+  //       email: { show: true, value: "hackthon@gmail.com" },
+  //       phoneNo: { show: true, value: "1234567890" },
+  //       website: { show: false },
+  //     },
+  //     address: "pune",
+  //   },
+  //   {
+  //     _id: "7823",
+  //     ownerId: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
+  //     type: "business",
+  //     versionNo: 0,
+  //     name: "Ineuron pvl ltd",
+  //     logo: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
+  //     imgUrl:
+  //       "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
+  //     details: {
+  //       email: { show: true, value: "hackthon@gmail.com" },
+  //       phoneNo: { show: false },
+  //       website: { show: true, value: "1234567890" },
+  //     },
+  //   },
+  //   {
+  //     _id: "782f3",
+  //     ownerId: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
+  //     type: "business",
+  //     versionNo: 0,
+  //     name: "Ineuron s ltd",
+  //     logo: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
+  //     imgUrl:
+  //       "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
+  //     details: {
+  //       email: { show: true, value: "hackthon@gmail.com" },
+  //       phoneNo: { show: false },
+  //       website: { show: true, value: "1234567890" },
+  //     },
+  //   },
+  // ];
 
   return (
     <SafeAreaView
