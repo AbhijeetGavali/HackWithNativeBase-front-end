@@ -9,3 +9,11 @@ export const SIGNUP_FAIL = "SIGNUP_FAIL";
 export const ADD_CARD_START = "ADD_CARD_START";
 export const ADD_CARD_SUCCESS = "ADD_CARD_SUCCESS";
 export const ADD_CARD_FAIL = "ADD_CARD_FAIL";
+
+export const SCAN_CARD_START = "SCAN_CARD_START";
+export const SCAN_CARD_SUCCESS = "SCAN_CARD_SUCCESS";
+export const SCAN_CARD_FAIL = "SCAN_CARD_FAIL";
+
+export const GET_CARDS_START = "GET_CARDS_START";
+export const GET_CARDS_SUCCESS = "GET_CARDS_SUCCESS";
+export const GET_CARDS_FAIL = "GET_CARDS_FAIL";
