@@ -1,7 +1,11 @@
 import { Text, Heading, Box, FlatList, Pressable, HStack } from "native-base";
 
-import { SafeAreaView, TouchableOpacity } from "react-native";
-import { StatusBar } from "expo-status-bar";
+import {
+  SafeAreaView,
+  TouchableOpacity,
+  Platform,
+  StatusBar,
+} from "react-native";
 
 import React from "react";
 import BusinessCardCoursole from "../components/BusinessCardCoursole";
@@ -18,6 +22,20 @@ function Dashboard({ navigation }) {
       bUrl: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
     },
     
+    {
+      _id: "1234ss",
+      ownerId: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
+      type: "personal",
+      versionNo: 0,
+      fullName: "Aafreen Khan",
+      designation: "software developer @ ineuron",
+      imgUrl: "",
+      details: {
+        email: { show: true, value: "hackthon@gmail.com" },
+        phoneNo: { show: true, value: "1234567890" },
+        website: { show: false },
+      },
+    },
     {
       _id: "7823",
       ownerId: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
@@ -51,23 +69,28 @@ function Dashboard({ navigation }) {
   ];
 
   return (
-    <SafeAreaView>
+    <SafeAreaView
+      style={{
+        flex: 1,
+        paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+      }}
+    >
       <Box>
         <HStack
           alignItems={"center"}
           justifyContent={"space-between"}
           mx={5}
           mr={7}
+          shadowColor="black"
         >
-          <Heading fontSize="xl" p="4" pb="3">
-            Cards Shared with you
-          </Heading>
+          <Heading fontSize="xl">Cards Shared with you</Heading>
           <TouchableOpacity>
             <MaterialCommunityIcons name="qrcode" size={32} />
           </TouchableOpacity>
         </HStack>
         <FlatList
           data={data}
+          height={Platform.OS === "android" ? 675 : 685}
           renderItem={({ item }) =>
             item.type === "business" ? (
               <>
@@ -159,6 +182,7 @@ function Dashboard({ navigation }) {
             )
           }
           keyExtractor={(item) => item._id}
+          safeArea
         />
       </Box>
     </SafeAreaView>
