@@ -5,9 +5,10 @@ import {
   TouchableOpacity,
   Platform,
   StatusBar,
+  Modal,
 } from "react-native";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import BusinessCardCoursole from "../components/BusinessCardCoursole";
 import PersonalCardCoursole from "../components/PersonalCardCoursole";
 import ImageCardCoursole from "../components/ImageCardCoursole";
@@ -21,62 +22,7 @@ function Dashboard({ navigation }) {
   useEffect(() => {
     dispatch(getCard());
   }, []);
-  // const data = [
-  //   {
-  //     _id: "7890",
-  //     ownerId: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
-  //     type: "img",
-  //     fUrl: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
-  //     bUrl: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
-  //   },
-
-  //   {
-  //     _id: "1234ss",
-  //     ownerId: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
-  //     type: "personal",
-  //     versionNo: 0,
-  //     fullName: "Aafreen Khan",
-  //     designation: "QA Test Engineer at Nvidia",
-  //     imgUrl: "",
-  //     details: {
-  //       email: { show: true, value: "hackthon@gmail.com" },
-  //       phoneNo: { show: true, value: "1234567890" },
-  //       website: { show: false },
-  //     },
-  //     address: "pune",
-  //   },
-  //   {
-  //     _id: "7823",
-  //     ownerId: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
-  //     type: "business",
-  //     versionNo: 0,
-  //     name: "Ineuron pvl ltd",
-  //     logo: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
-  //     imgUrl:
-  //       "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
-  //     details: {
-  //       email: { show: true, value: "hackthon@gmail.com" },
-  //       phoneNo: { show: false },
-  //       website: { show: true, value: "1234567890" },
-  //     },
-  //   },
-  //   {
-  //     _id: "782f3",
-  //     ownerId: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
-  //     type: "business",
-  //     versionNo: 0,
-  //     name: "Ineuron s ltd",
-  //     logo: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
-  //     imgUrl:
-  //       "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
-  //     details: {
-  //       email: { show: true, value: "hackthon@gmail.com" },
-  //       phoneNo: { show: false },
-  //       website: { show: true, value: "1234567890" },
-  //     },
-  //   },
-  // ];
-
+  const [showModal, setShowModal] = useState(false);
   return (
     <SafeAreaView
       style={{
@@ -92,7 +38,7 @@ function Dashboard({ navigation }) {
         shadowColor="black"
       >
         <Heading fontSize="xl">Cards Shared with you</Heading>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => setShowModal(true)}>
           <MaterialCommunityIcons name="qrcode" size={32} />
         </TouchableOpacity>
       </HStack>
@@ -191,7 +137,43 @@ function Dashboard({ navigation }) {
         }
         keyExtractor={(item) => item._id}
         safeAreaBottom={true}
-      />
+      />{" "}
+      <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
+        <Modal.Content maxWidth="400px">
+          <Modal.CloseButton />
+          <Modal.Header>Contact Us</Modal.Header>
+          <Modal.Body>
+            <FormControl>
+              <FormControl.Label>Name</FormControl.Label>
+              <Input />
+            </FormControl>
+            <FormControl mt="3">
+              <FormControl.Label>Email</FormControl.Label>
+              <Input />
+            </FormControl>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button.Group space={2}>
+              <Button
+                variant="ghost"
+                colorScheme="blueGray"
+                onPress={() => {
+                  setShowModal(false);
+                }}
+              >
+                Cancel
+              </Button>
+              <Button
+                onPress={() => {
+                  setShowModal(false);
+                }}
+              >
+                Save
+              </Button>
+            </Button.Group>
+          </Modal.Footer>
+        </Modal.Content>
+      </Modal>
     </SafeAreaView>
   );
 }
