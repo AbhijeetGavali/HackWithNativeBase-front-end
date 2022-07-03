@@ -111,7 +111,7 @@ export default function App() {
           linking={linking}
           fallback={<Text>Loading...</Text>}
         >
-          <Stack.Navigator initialRouteName="MyTabs">
+          <Stack.Navigator initialRouteName="Onboarding">
             <Stack.Screen
               name="Login"
               component={Login}
