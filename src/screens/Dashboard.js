@@ -17,20 +17,7 @@ function Dashboard({ navigation }) {
       fUrl: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
       bUrl: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
     },
-    {
-      _id: "1234",
-      ownerId: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
-      type: "personal",
-      versionNo: 0,
-      fullName: "Aafreen Khan",
-      designation: "software developer @ ineuron",
-      imgUrl: "",
-      details: {
-        email: { show: true, value: "hackthon@gmail.com" },
-        phoneNo: { show: true, value: "1234567890" },
-        website: { show: false },
-      },
-    },
+    
     {
       _id: "7823",
       ownerId: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
