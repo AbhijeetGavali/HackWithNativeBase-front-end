@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
   carousel: {
     flexGrow: 0,
     height: 210,
+    margin: "auto",
   },
   item: {
     shadowColor: "black",
@@ -47,8 +48,8 @@ export default function PersonalCardCoursole({ data }) {
       data={[data, data]}
       renderItem={renderItem}
       style={styles.carousel}
-      itemWidth={windowWidth}
-      containerWidth={windowWidth}
+      itemWidth={windowWidth < 700 ? windowWidth : 700}
+      containerWidth={windowWidth < 700 ? windowWidth : 700}
       separatorWidth={2}
     />
   );

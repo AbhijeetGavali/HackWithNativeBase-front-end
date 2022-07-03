@@ -16,7 +16,7 @@ import Feather from "react-native-vector-icons/Feather";
 
 import { useForm, Controller } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { signin } from "../redux/action/user";
+import { signup } from "../redux/action/user";
 
 const Register = () => {
   const toast = useToast();
@@ -28,7 +28,7 @@ const Register = () => {
 
   const dispatch = useDispatch();
   const onSubmit = (data) => {
-    dispatch(signin(data, displayMessage, navigation));
+    dispatch(signup(data, displayMessage, navigation));
   };
   const displayMessage = (message) => {
     toast.show({
@@ -61,6 +61,36 @@ const Register = () => {
           <FormControl isRequired _web={{ width: "50%" }}>
             <Stack mx="4">
               {/* start here */}
+              <FormControl isRequired isInvalid={"email" in errors}>
+                <FormControl.Label>Full Name</FormControl.Label>
+                <Controller
+                  control={control}
+                  render={({ field: { onChange, onBlur, value } }) => (
+                    <Input
+                      onBlur={onBlur}
+                      placeholder="Aida Bugg."
+                      onChangeText={(val) => onChange(val)}
+                      value={value}
+                      height={50}
+                      size={"lg"}
+                      alignItems={"center"}
+                    />
+                  )}
+                  name="fullName"
+                  rules={{
+                    required: "Please enter a Full name",
+                    pattern: {
+                      value: /^[A-Z0-9._%+-]/i,
+                      message: "Please enter a your name",
+                    },
+                  }}
+                  defaultValue=""
+                />
+                <FormControl.ErrorMessage>
+                  {errors.fullName?.message}
+                </FormControl.ErrorMessage>
+              </FormControl>
+
               <FormControl isRequired isInvalid={"email" in errors}>
                 <FormControl.Label>Email Address</FormControl.Label>
                 <Controller

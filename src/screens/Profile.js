@@ -387,16 +387,16 @@ const Profile = ({ navigation }) => {
           <Box
             flexDirection={"row"}
             marginBottom={3}
-            _web={{ width: "80%", margin: "auto" }}
+            justifyContent={"space-evenly"}
+            _web={{ marginRight: 20 }}
           >
-            <Button onPress={pickImage} flexGrow={1} width={50} marginX={2}>
+            <Button width="40%" onPress={pickImage} _web={{ width: "30%" }}>
               Choose Logo
             </Button>
             <Button
+              width="40%"
               onPress={handleSubmit(onSubmit)}
-              flexGrow={1}
-              width={50}
-              marginX={2}
+              _web={{ width: "30%" }}
             >
               Make A card
             </Button>
