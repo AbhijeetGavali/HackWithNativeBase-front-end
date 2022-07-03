@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
   carousel: {
     flexGrow: 0,
     height: 210,
+    margin: "auto",
   },
   item: {
     shadowColor: "#fff",
@@ -62,8 +63,8 @@ export default function BusinessCardCoursole({ data }) {
       data={[data, data]}
       renderItem={renderItem}
       style={styles.carousel}
-      itemWidth={windowWidth}
-      containerWidth={windowWidth}
+      itemWidth={windowWidth < 700 ? windowWidth : 700}
+      containerWidth={windowWidth < 700 ? windowWidth : 700}
       separatorWidth={2}
     />
   );
@@ -107,7 +108,7 @@ const BusinessCardFroent1 = ({ data }) => {
             alignItems="center"
             justifyContent={"center"}
             background="#242B2E"
-            height="100%"
+            height="192"
           >
             <Center
               bg="#ffff"
@@ -188,6 +189,9 @@ const BusinessCardBack1 = ({ data }) => {
                 fontWeight: "700",
                 fontSize: "xs",
               }}
+              alignItems="center"
+              justifyContent={"center"}
+              _web={{ mt: 8 }}
             >
               <View width="40%" alignItems="center">
                 <Image
@@ -202,8 +206,18 @@ const BusinessCardBack1 = ({ data }) => {
                 />
               </View>
               <Divider my={2} height={"90%"} width={1} />
-              <View width="60%" alignItems={"flex-start"} padding="2%">
-                <Heading color="coolGray.300" marginTop={3} marginBottom={2}>
+              <View
+                width="60%"
+                alignItems={"flex-start"}
+                padding="2%"
+                _web={{ ml: 5 }}
+              >
+                <Heading
+                  color="coolGray.300"
+                  marginTop={3}
+                  marginBottom={2}
+                  _web={{ fontSize: "lg" }}
+                >
                   {data.name}
                 </Heading>
                 <Text fontWeight="400">
