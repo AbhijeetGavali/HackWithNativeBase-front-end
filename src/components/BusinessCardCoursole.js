@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     height: 210,
   },
   item: {
-    shadowColor: "black",
+    shadowColor: "#fff",
     shadowOpacity: 0.6,
     shadowOffset: { x: 5, y: 5 },
     shadowRadius: 5,
@@ -99,7 +99,7 @@ const BusinessCardFroent1 = ({ data }) => {
           _text={{
             fontSize: "md",
             fontWeight: "medium",
-            color: '#000',
+            color: "#000",
             textAlign: "center",
           }}
         >
@@ -152,18 +152,18 @@ const BusinessCardBack1 = ({ data }) => {
         height="200"
         rounded="lg"
         overflow="hidden"
-        borderColor="coolGray.200"
+        borderColor="#242B2E"
         borderWidth="1"
         _dark={{
-          borderColor: "coolGray.600",
-          backgroundColor: "gray.700",
+          borderColor: "#242B2E",
+          backgroundColor: "#242B2E",
         }}
         _web={{
           shadow: 2,
           borderWidth: 0,
         }}
         _light={{
-          backgroundColor: "gray.50",
+          backgroundColor: "#242B2E",
         }}
       >
         <Box
@@ -171,20 +171,20 @@ const BusinessCardBack1 = ({ data }) => {
           _text={{
             fontSize: "md",
             fontWeight: "medium",
-            color: "warmGray.50",
+            color: "#242B2E",
             textAlign: "center",
           }}
         >
           <View
             alignItems="center"
             justifyContent={"center"}
-            background="info.600"
+            background="#242B2E"
             height="100%"
           >
             <Center
               flexDirection={"row"}
               _text={{
-                color: "warmGray.50",
+                color: "#242B2E",
                 fontWeight: "700",
                 fontSize: "xs",
               }}
@@ -198,17 +198,20 @@ const BusinessCardBack1 = ({ data }) => {
                   width={70}
                   height={70}
                   borderRadius={50}
+                  style={{ shadowColor: "white", shadowRadius: 5 }}
                 />
               </View>
               <Divider my={2} height={"90%"} width={1} />
               <View width="60%" alignItems={"flex-start"} padding="2%">
-                <Heading color="emerald.400" marginTop={3} marginBottom={2}>
+                <Heading color="coolGray.500" marginTop={3} marginBottom={2}>
                   {data.name}
                 </Heading>
                 <Text fontWeight="400">
-                  <Entypo name="email" size={18} color="black" />
+                  <Entypo name="email" size={18} color="#fff" />
                   {data.details.email.show ? (
-                    <Text fontWeight="400">{data.details.email.value}</Text>
+                    <Text fontWeight="400" style={{ color: "#FFFF" }}>
+                      {data.details.email.value}
+                    </Text>
                   ) : (
                     <Text fontWeight="400" color="muted.700">
                       default@email.com
@@ -216,9 +219,11 @@ const BusinessCardBack1 = ({ data }) => {
                   )}
                 </Text>
                 <Text fontWeight="400">
-                  <Feather name="phone" size={18} color="black" />
+                  <Feather name="phone" size={18} color="#fff" />
                   {data.details.phoneNo.show ? (
-                    <Text fontWeight="400">{data.details.phoneNo.value}</Text>
+                    <Text fontWeight="400" style={{ color: "#FFFF" }}>
+                      {data.details.phoneNo.value}
+                    </Text>
                   ) : (
                     <Text fontWeight="400" color="muted.700">
                       1234567890
@@ -226,10 +231,12 @@ const BusinessCardBack1 = ({ data }) => {
                   )}
                 </Text>
                 <Text fontWeight="400">
-                  <Feather name="external-link" size={18} color="black" />
+                  <Feather name="external-link" size={18} color="#fff" />
                   {data.details.website.show ? (
                     <Link href={data.details.website.value}>
-                      <Text fontWeight="400">{data.details.website.value}</Text>
+                      <Text fontWeight="400" color="#fff">
+                        {data.details.website.value}
+                      </Text>
                     </Link>
                   ) : (
                     <Link href={data.details.website.value}>

@@ -81,51 +81,72 @@ const PersonalCardFroent1 = ({ data }) => {
 const PersonalCardBack1 = ({ data }) => {
   return (
     <Box alignItems="center">
-      <Box maxW="80" borderRadius={15} h={192} w={336} bg="amber.800">
-        <Box borderRadius={15} mx={5} my={9} justifyContent={"space-between"}>
-          <Heading>{data.fullName}</Heading>
+      <Box maxW="80" borderRadius={15} h={192} w={336} bg="#242B2E">
+        <Box borderRadius={15} mx={5} my={6} justifyContent={"space-between"}>
+          <Heading color="#FFF">{data.fullName}</Heading>
           <HStack mb={1}>
-            <Text style={{ color: "#FFFF" }}>{data.designation}</Text>
+            <Text style={{ color: "#AF9D5A" }}>{data.designation}</Text>
           </HStack>
           <Divider w={"70%"} />
           <HStack alignItems={"center"} mt={4}>
-            <Feather name="mail" size={20} style={{ marginRight: 5 }} />
+            <Feather
+              name="mail"
+              size={20}
+              style={{ marginRight: 5 }}
+              color="#fff"
+            />
             {data.details.email.show ? (
-              <Text fontWeight="400">{data.details.email.value}</Text>
+              <Text fontWeight="400" style={{ color: "#FFFF" }}>
+                {data.details.email.value}
+              </Text>
             ) : (
-              <Text fontWeight="400" color="muted.700">
+              <Text fontWeight="400" style={{ color: "gray" }}>
                 default@email.com
               </Text>
             )}
           </HStack>
           <HStack alignItems={"center"}>
-            <Feather name="phone" size={20} style={{ marginRight: 5 }} />
+            <Feather
+              name="phone"
+              size={20}
+              style={{ marginRight: 5 }}
+              color="white"
+            />
             {data.details.phoneNo.show ? (
-              <Text fontWeight="400">{data.details.phoneNo.value}</Text>
+              <Text fontWeight="400" style={{ color: "#FFFF" }}>
+                {data.details.phoneNo.value}
+              </Text>
             ) : (
-              <Text fontWeight="400" color="muted.700">
+              <Text fontWeight="400" style={{ color: "gray" }}>
                 1234567890
               </Text>
             )}
           </HStack>
           <HStack>
-            <Feather name="external-link" size={18} color="black" />
+            <Feather
+              name="external-link"
+              size={18}
+              color="white"
+              style={{ marginRight: 5 }}
+            />
             {data.details.website.show ? (
-              <Link href={data.details.website.value}>
-                <Text fontWeight="400">{data.details.website.value}</Text>
-              </Link>
+              <Text fontWeight="400" style={{ color: "#FFFF" }}>
+                {data.details.website.value}
+              </Text>
             ) : (
-              <Link href={data.details.website.value}>
-                <Text fontWeight="400" color="muted.700">
-                  http://HelloWorld.com
-                </Text>
-              </Link>
+              <Text fontWeight="400" style={{ color: "gray" }}>
+                http://HelloWorld.com
+              </Text>
             )}
           </HStack>
 
-          <HStack alignItems={"center"}>
-            <EvilIcons name="location" size={20} style={{ marginRight: 5 }} />
-            <Text>{data.address}</Text>
+          <HStack>
+            <EvilIcons
+              name="location"
+              size={24}
+              style={{ color: "white", marginRight: 5, marginLeft: -5 }}
+            />
+            <Text style={{ color: "#FFFF" }}>{data.address}</Text>
           </HStack>
         </Box>
       </Box>
