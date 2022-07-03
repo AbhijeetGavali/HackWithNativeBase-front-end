@@ -91,7 +91,7 @@ const Register = () => {
                 </FormControl.ErrorMessage>
               </FormControl>
 
-              <FormControl isRequired isInvalid={"email" in errors}>
+              <FormControl isRequired isInvalid={"email" in errors} pt={2}>
                 <FormControl.Label>Email Address</FormControl.Label>
                 <Controller
                   control={control}
