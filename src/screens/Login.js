@@ -9,13 +9,13 @@ import {
   Stack,
   useToast,
   HStack,
-  VStack
+  VStack,
+  Heading,
 } from "native-base";
 import { useForm, Controller } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { signin } from "../redux/action/user";
-import Feather from 'react-native-vector-icons/Feather'
-
+import Feather from "react-native-vector-icons/Feather";
 
 const Login = ({ navigation }) => {
   const toast = useToast();
@@ -36,30 +36,31 @@ const Login = ({ navigation }) => {
   };
 
   return (
-    <View style={{flex:1,backgroundColor:"#5E6FD3"}}>
-      <Center flex={1} >
-        <HStack alignSelf={'center'} marginX={15} flex={1}
-        mt={40} 
-        >
-          <Feather name='upload-cloud' size={60} color={'#000000'}/>
+    <View style={{ flex: 1, backgroundColor: "#5E6FD3" }}>
+      <Center flex={1}>
+        <HStack alignSelf={"center"} marginX={15} flex={1} mt={40}>
+          <Feather name="upload-cloud" size={60} color={"#000000"} />
           <VStack marginLeft={2}>
-            <Text style={{fontSize:50,color:"#ffffff",fontWeight:'900'}}>Cardz</Text>
+            <Text style={{ fontSize: 50, color: "#ffffff", fontWeight: "900" }}>
+              Cardz
+            </Text>
           </VStack>
         </HStack>
       </Center>
       <Center
         px={4}
         flex={2}
-        justifyContent={'flex-start'}
-        backgroundColor={'#fff'}
+        justifyContent={"flex-start"}
+        backgroundColor={"#fff"}
         borderTopLeftRadius={70}
         pt={10}
-      > 
-        <FormControl isRequired>
+      >
+        <Heading mb={10}>Login</Heading>
+        <FormControl isRequired _web={{ width: "50%" }}>
           <Stack mx="4">
             {/* start here */}
             <FormControl isRequired isInvalid={"email" in errors}>
-              <FormControl.Label >Email Address</FormControl.Label>
+              <FormControl.Label>Email Address</FormControl.Label>
               <Controller
                 control={control}
                 render={({ field: { onChange, onBlur, value } }) => (
@@ -69,8 +70,8 @@ const Login = ({ navigation }) => {
                     onChangeText={(val) => onChange(val)}
                     value={value}
                     height={50}
-                    size={'lg'}
-                    alignItems={'center'}
+                    size={"lg"}
+                    alignItems={"center"}
                   />
                 )}
                 name="email"
@@ -99,9 +100,8 @@ const Login = ({ navigation }) => {
                     onChangeText={(val) => onChange(val)}
                     value={value}
                     height={50}
-                    size={'lg'}
-                    alignItems={'center'}
-
+                    size={"lg"}
+                    alignItems={"center"}
                   />
                 )}
                 name="password"
@@ -122,17 +122,19 @@ const Login = ({ navigation }) => {
               </FormControl.ErrorMessage>
             </FormControl>
 
-            <Button onPress={handleSubmit(onSubmit)}
+            <Button
+              onPress={handleSubmit(onSubmit)}
               marginY={5}
-              background={'#3944F7'}
+              background={"#3944F7"}
               height={50}
-              size={'lg'}
-              
+              size={"lg"}
               _text={{
-                fontWeight:"bold",
-                color:"#fff"
+                fontWeight: "bold",
+                color: "#fff",
               }}
-              >Login</Button>
+            >
+              Login
+            </Button>
           </Stack>
         </FormControl>
       </Center>

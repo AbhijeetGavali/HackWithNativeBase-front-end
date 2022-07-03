@@ -1,10 +1,4 @@
-import {
-  StyleSheet,
-  ScrollView,
-  SafeAreaView,
-  Platform,
-  StatusBar,
-} from "react-native";
+import { StyleSheet, ScrollView } from "react-native";
 import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { Box, Button, FormControl, Heading, Input, VStack } from "native-base";
@@ -48,8 +42,19 @@ const Profile = ({ navigation }) => {
       <Box safeAreaTop />
       <ScrollView>
         <VStack safeAreaBottom px={{ md: 40 }}>
-          <Heading padding={6}>Personal Details:</Heading>
-          <FormControl isRequired isInvalid={"name" in errors} mx={5} mb={3}>
+          <Heading
+            padding={6}
+            _web={{ width: "80%", margin: "auto", textAlign: "center" }}
+          >
+            Personal Details:
+          </Heading>
+          <FormControl
+            isRequired
+            isInvalid={"name" in errors}
+            mx={5}
+            mb={3}
+            _web={{ width: "80%", margin: "auto" }}
+          >
             <FormControl.Label _text={{ fontSize: "xl" }}>
               Name
             </FormControl.Label>
@@ -78,6 +83,7 @@ const Profile = ({ navigation }) => {
             </FormControl.ErrorMessage>
           </FormControl>
           <FormControl
+            _web={{ width: "80%", margin: "auto" }}
             isRequired
             isInvalid={"companyName" in errors}
             mx={5}
@@ -116,6 +122,7 @@ const Profile = ({ navigation }) => {
             isInvalid={"jobTitle" in errors}
             mx={5}
             mb={3}
+            _web={{ width: "80%", margin: "auto" }}
           >
             <FormControl.Label _text={{ fontSize: "xl" }}>
               Job Title
@@ -145,6 +152,7 @@ const Profile = ({ navigation }) => {
             </FormControl.ErrorMessage>
           </FormControl>
           <FormControl
+            _web={{ width: "80%", margin: "auto" }}
             isRequired
             isInvalid={"phoneNumber" in errors}
             mx={5}
@@ -178,7 +186,13 @@ const Profile = ({ navigation }) => {
             </FormControl.ErrorMessage>
           </FormControl>
 
-          <FormControl isRequired isInvalid={"email" in errors} mx={5} mb={3}>
+          <FormControl
+            isRequired
+            isInvalid={"email" in errors}
+            mx={5}
+            mb={3}
+            _web={{ width: "80%", margin: "auto" }}
+          >
             <FormControl.Label _text={{ fontSize: "xl" }}>
               Email Address
             </FormControl.Label>
@@ -207,7 +221,13 @@ const Profile = ({ navigation }) => {
             </FormControl.ErrorMessage>
           </FormControl>
 
-          <FormControl isRequired isInvalid={"website" in errors} mx={5} mb={3}>
+          <FormControl
+            isRequired
+            isInvalid={"website" in errors}
+            mx={5}
+            mb={3}
+            _web={{ width: "80%", margin: "auto" }}
+          >
             <FormControl.Label _text={{ fontSize: "xl" }}>
               Website
             </FormControl.Label>
@@ -237,7 +257,13 @@ const Profile = ({ navigation }) => {
             </FormControl.ErrorMessage>
           </FormControl>
 
-          <FormControl isRequired isInvalid={"address" in errors} mx={5} mb={3}>
+          <FormControl
+            isRequired
+            isInvalid={"address" in errors}
+            mx={5}
+            mb={3}
+            _web={{ width: "80%", margin: "auto" }}
+          >
             <FormControl.Label _text={{ fontSize: "xl" }}>
               Address
             </FormControl.Label>
@@ -265,7 +291,13 @@ const Profile = ({ navigation }) => {
               {errors.address?.message}
             </FormControl.ErrorMessage>
           </FormControl>
-          <FormControl isRequired isInvalid={"desc" in errors} mx={5} mb={3}>
+          <FormControl
+            isRequired
+            isInvalid={"desc" in errors}
+            mx={5}
+            mb={3}
+            _web={{ width: "80%", margin: "auto" }}
+          >
             <FormControl.Label _text={{ fontSize: "xl" }}>
               Description
             </FormControl.Label>
@@ -291,7 +323,12 @@ const Profile = ({ navigation }) => {
             </FormControl.ErrorMessage>
           </FormControl>
 
-          <FormControl isInvalid={"instagram" in errors} mx={5} mb={3}>
+          <FormControl
+            isInvalid={"instagram" in errors}
+            mx={5}
+            mb={3}
+            _web={{ width: "80%", margin: "auto" }}
+          >
             <FormControl.Label _text={{ fontSize: "xl" }}>
               Instagram
             </FormControl.Label>
@@ -316,7 +353,12 @@ const Profile = ({ navigation }) => {
               {errors.instagram?.message}
             </FormControl.ErrorMessage>
           </FormControl>
-          <FormControl isInvalid={"linkdin" in errors} mx={5} mb={3}>
+          <FormControl
+            _web={{ width: "80%", margin: "auto", marginBottom: 10 }}
+            isInvalid={"linkdin" in errors}
+            mx={5}
+            mb={3}
+          >
             <FormControl.Label _text={{ fontSize: "xl" }}>
               Linkdin
             </FormControl.Label>
@@ -341,7 +383,12 @@ const Profile = ({ navigation }) => {
               {errors.linkdin?.message}
             </FormControl.ErrorMessage>
           </FormControl>
-          <Box flexDirection={"row"} marginBottom={3}>
+
+          <Box
+            flexDirection={"row"}
+            marginBottom={3}
+            _web={{ width: "80%", margin: "auto" }}
+          >
             <Button onPress={pickImage} flexGrow={1} width={50} marginX={2}>
               Choose Logo
             </Button>

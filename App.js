@@ -46,6 +46,21 @@ import MakeCard from "./src/screens/MakeCard";
 
 const Tab = createBottomTabNavigator();
 
+const linking = {
+  prefixes: ["cardz://", "https://cardz.in"],
+  config: {
+    screens: {
+      Dashboard: "Dashboard",
+      Profile: "user",
+      BusinessFullCard: "BusinessFullCard",
+      PersonalFullCard: "PersonalFullCard",
+      ImageFullCard: "ImageFullCard",
+      Register: "Register",
+      Login: "Login",
+    },
+  },
+};
+
 function MyTabs() {
   return (
     <Tab.Navigator
@@ -61,6 +76,7 @@ function MyTabs() {
         name="Dashboard"
         component={Dashboard}
         options={{
+          tabBarVisible: true,
           tabBarIcon: ({ color }) => (
             <Entypo name="home" size={30} color={color} />
           ),
@@ -70,7 +86,9 @@ function MyTabs() {
         name="Home"
         component={Home}
         options={{
-          tabBarIcon: ({}) => <Entypo name="camera" size={30} />,
+          tabBarIcon: ({ color }) => (
+            <Entypo name="camera" size={30} color={color} />
+          ),
         }}
       />
       <Tab.Screen
@@ -89,7 +107,10 @@ export default function App() {
   return (
     <Provider store={store}>
       <NativeBaseProvider>
-        <NavigationContainer>
+        <NavigationContainer
+          linking={linking}
+          fallback={<Text>Loading...</Text>}
+        >
           <Stack.Navigator initialRouteName="MyTabs">
             <Stack.Screen
               name="Login"
