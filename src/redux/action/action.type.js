@@ -5,3 +5,7 @@ export const SIGNIN_FAIL = "SIGNIN_FAIL";
 export const SIGNUP_START = "SIGNUP_START";
 export const SIGNUP_SUCCESS = "SIGNUP_SUCCESS";
 export const SIGNUP_FAIL = "SIGNUP_FAIL";
+
+export const ADD_CARD_START = "ADD_CARD_START";
+export const ADD_CARD_SUCCESS = "ADD_CARD_SUCCESS";
+export const ADD_CARD_FAIL = "ADD_CARD_FAIL";

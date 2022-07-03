@@ -1,11 +1,13 @@
-import { StyleSheet, Text, TextInput, View, ScrollView, SafeAreaView } from "react-native";
+import { StyleSheet, Text, TextInput, View, ScrollView } from "react-native";
 import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
-import { Box, Button, Center, FormControl, Input,Image } from "native-base";
+import { Box, Button, FormControl, Input } from "native-base";
 import * as ImagePicker from "expo-image-picker";
-import { StatusBar } from 'expo-status-bar';
-
+import { jsonToFormData } from "../../utils/formData";
+import { addCard } from "../redux/action/profile";
+import { useDispatch } from "react-redux";
 const Profile = ({ navigation }) => {
+  const dispatch = useDispatch();
   const [image, setImage] = useState(null);
   const pickImage = async () => {
     // No permissions request is necessary for launching the image library
@@ -19,7 +21,7 @@ const Profile = ({ navigation }) => {
     console.log(result);
 
     if (!result.cancelled) {
-      setImage(result.uri);
+      setImage(result);
     }
   };
   const {
@@ -27,22 +29,18 @@ const Profile = ({ navigation }) => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+    let formData = jsonToFormData(data);
+    formData.append("logo", image.uri);
+
+    dispatch(addCard(formData, navigation));
+  };
   return (
     <ScrollView>
-      <StatusBar style='auto' />
-      <SafeAreaView>
-        <Center>
-          <Image 
-            source={require('/Users/avishkar/HackWithNativeBase-front-end/assets/adaptive-icon.png')}
-            w={100}
-            h={100}
-          />
-        </Center>
-      <FormControl isRequired isInvalid={"name" in errors} mx={5}
-              mb={3}>
-        <FormControl.Label
-        _text={{fontSize:"xl"}}
-        >Name</FormControl.Label>
+      <FormControl isRequired isInvalid={"name" in errors} mx={5} mb={3}>
+        <FormControl.Label _text={{ fontSize: "xl" }}>Name</FormControl.Label>
         <Controller
           control={control}
           render={({ field: { onChange, onBlur, value } }) => (
@@ -52,8 +50,8 @@ const Profile = ({ navigation }) => {
               onChangeText={(val) => onChange(val)}
               value={value}
               height={50}
-              size={'lg'}
-              alignItems={'center'}
+              size={"lg"}
+              alignItems={"center"}
               width={"90%"}
             />
           )}
@@ -67,11 +65,10 @@ const Profile = ({ navigation }) => {
           {errors.name?.message}
         </FormControl.ErrorMessage>
       </FormControl>
-      <FormControl isRequired isInvalid={"companyName" in errors}
-        mx={5}
-        mb={3}
-      >
-        <FormControl.Label  _text={{fontSize:"xl"}}>Company Name</FormControl.Label>
+      <FormControl isRequired isInvalid={"companyName" in errors} mx={5} mb={3}>
+        <FormControl.Label _text={{ fontSize: "xl" }}>
+          Company Name
+        </FormControl.Label>
         <Controller
           control={control}
           render={({ field: { onChange, onBlur, value } }) => (
@@ -81,10 +78,9 @@ const Profile = ({ navigation }) => {
               onChangeText={(val) => onChange(val)}
               value={value}
               height={50}
-              size={'lg'}
-              alignItems={'center'}
+              size={"lg"}
+              alignItems={"center"}
               width={"90%"}
-
             />
           )}
           name="companyName"
@@ -98,11 +94,10 @@ const Profile = ({ navigation }) => {
         </FormControl.ErrorMessage>
       </FormControl>
 
-      <FormControl isRequired isInvalid={"jobTitle" in errors}
-      mx={5}
-      mb={3}
-      >
-        <FormControl.Label _text={{fontSize:"xl"}}>Job Title</FormControl.Label>
+      <FormControl isRequired isInvalid={"jobTitle" in errors} mx={5} mb={3}>
+        <FormControl.Label _text={{ fontSize: "xl" }}>
+          Job Title
+        </FormControl.Label>
         <Controller
           control={control}
           render={({ field: { onChange, onBlur, value } }) => (
@@ -112,11 +107,9 @@ const Profile = ({ navigation }) => {
               onChangeText={(val) => onChange(val)}
               value={value}
               width={"90%"}
-
-              
               height={50}
-              size={'lg'}
-              alignItems={'center'}
+              size={"lg"}
+              alignItems={"center"}
             />
           )}
           name="jobTitle"
@@ -129,11 +122,10 @@ const Profile = ({ navigation }) => {
           {errors.jobTitle?.message}
         </FormControl.ErrorMessage>
       </FormControl>
-      <FormControl isRequired isInvalid={"phoneNumber" in errors}
-      mx={5}
-      mb={3}
-      >
-        <FormControl.Label _text={{fontSize:"xl"}}>Phone Number</FormControl.Label>
+      <FormControl isRequired isInvalid={"phoneNumber" in errors} mx={5} mb={3}>
+        <FormControl.Label _text={{ fontSize: "xl" }}>
+          Phone Number
+        </FormControl.Label>
         <Controller
           control={control}
           render={({ field: { onChange, onBlur, value } }) => (
@@ -143,10 +135,9 @@ const Profile = ({ navigation }) => {
               onChangeText={(val) => onChange(val)}
               value={value}
               width={"90%"}
-
               height={50}
-              size={'lg'}
-              alignItems={'center'}
+              size={"lg"}
+              alignItems={"center"}
             />
           )}
           name="phoneNumber"
@@ -160,11 +151,10 @@ const Profile = ({ navigation }) => {
         </FormControl.ErrorMessage>
       </FormControl>
 
-      <FormControl isRequired isInvalid={"email" in errors}
-      mx={5}
-      mb={3}
-      >
-        <FormControl.Label _text={{fontSize:"xl"}}>Email Address</FormControl.Label>
+      <FormControl isRequired isInvalid={"email" in errors} mx={5} mb={3}>
+        <FormControl.Label _text={{ fontSize: "xl" }}>
+          Email Address
+        </FormControl.Label>
         <Controller
           control={control}
           render={({ field: { onChange, onBlur, value } }) => (
@@ -174,10 +164,9 @@ const Profile = ({ navigation }) => {
               onChangeText={(val) => onChange(val)}
               value={value}
               width={"90%"}
-
               height={50}
-              size={'lg'}
-              alignItems={'center'}
+              size={"lg"}
+              alignItems={"center"}
             />
           )}
           name="email"
@@ -191,11 +180,10 @@ const Profile = ({ navigation }) => {
         </FormControl.ErrorMessage>
       </FormControl>
 
-      <FormControl isRequired isInvalid={"website" in errors}
-      mx={5}
-      mb={3}
-      >
-        <FormControl.Label _text={{fontSize:"xl"}}>Website</FormControl.Label>
+      <FormControl isRequired isInvalid={"website" in errors} mx={5} mb={3}>
+        <FormControl.Label _text={{ fontSize: "xl" }}>
+          Website
+        </FormControl.Label>
         <Controller
           control={control}
           render={({ field: { onChange, onBlur, value } }) => (
@@ -205,10 +193,9 @@ const Profile = ({ navigation }) => {
               onChangeText={(val) => onChange(val)}
               value={value}
               width={"90%"}
-              
               height={50}
-              size={'lg'}
-              alignItems={'center'}
+              size={"lg"}
+              alignItems={"center"}
               mb={3}
             />
           )}
@@ -223,11 +210,10 @@ const Profile = ({ navigation }) => {
         </FormControl.ErrorMessage>
       </FormControl>
 
-      <FormControl isRequired isInvalid={"address" in errors}
-      mx={5}
-      mb={3}
-      >
-        <FormControl.Label _text={{fontSize:"xl"}}>Address</FormControl.Label>
+      <FormControl isRequired isInvalid={"address" in errors} mx={5} mb={3}>
+        <FormControl.Label _text={{ fontSize: "xl" }}>
+          Address
+        </FormControl.Label>
         <Controller
           control={control}
           render={({ field: { onChange, onBlur, value } }) => (
@@ -237,10 +223,9 @@ const Profile = ({ navigation }) => {
               onChangeText={(val) => onChange(val)}
               value={value}
               width={"90%"}
-
               height={50}
-              size={'lg'}
-              alignItems={'center'}
+              size={"lg"}
+              alignItems={"center"}
             />
           )}
           name="address"
@@ -253,11 +238,10 @@ const Profile = ({ navigation }) => {
           {errors.address?.message}
         </FormControl.ErrorMessage>
       </FormControl>
-      <FormControl isRequired isInvalid={"desc" in errors}
-      mx={5}
-      mb={3}
-      >
-        <FormControl.Label _text={{fontSize:"xl"}}>Description</FormControl.Label>
+      <FormControl isRequired isInvalid={"desc" in errors} mx={5} mb={3}>
+        <FormControl.Label _text={{ fontSize: "xl" }}>
+          Description
+        </FormControl.Label>
         <Controller
           control={control}
           render={({ field: { onChange, onBlur, value } }) => (
@@ -267,10 +251,9 @@ const Profile = ({ navigation }) => {
               onChangeText={(val) => onChange(val)}
               value={value}
               width={"90%"}
-
               height={50}
-              size={'lg'}
-              alignItems={'center'}
+              size={"lg"}
+              alignItems={"center"}
             />
           )}
           name="desc"
@@ -281,11 +264,10 @@ const Profile = ({ navigation }) => {
         </FormControl.ErrorMessage>
       </FormControl>
 
-      <FormControl isInvalid={"instagram" in errors}
-      mx={5}
-      mb={3}
-      >
-        <FormControl.Label _text={{fontSize:"xl"}}>Instagram</FormControl.Label>
+      <FormControl isInvalid={"instagram" in errors} mx={5} mb={3}>
+        <FormControl.Label _text={{ fontSize: "xl" }}>
+          Instagram
+        </FormControl.Label>
         <Controller
           control={control}
           render={({ field: { onChange, onBlur, value } }) => (
@@ -295,10 +277,9 @@ const Profile = ({ navigation }) => {
               onChangeText={(val) => onChange(val)}
               value={value}
               width={"90%"}
-
               height={50}
-              size={'lg'}
-              alignItems={'center'}
+              size={"lg"}
+              alignItems={"center"}
             />
           )}
           name="instagram"
@@ -308,11 +289,10 @@ const Profile = ({ navigation }) => {
           {errors.instagram?.message}
         </FormControl.ErrorMessage>
       </FormControl>
-      <FormControl isInvalid={"linkdin" in errors}
-      mx={5}
-      mb={3}
-      >
-        <FormControl.Label _text={{fontSize:"xl"}}>Linkdin</FormControl.Label>
+      <FormControl isInvalid={"linkdin" in errors} mx={5} mb={3}>
+        <FormControl.Label _text={{ fontSize: "xl" }}>
+          Linkdin
+        </FormControl.Label>
         <Controller
           control={control}
           render={({ field: { onChange, onBlur, value } }) => (
@@ -322,12 +302,10 @@ const Profile = ({ navigation }) => {
               onChangeText={(val) => onChange(val)}
               value={value}
               width={"90%"}
-
               height={50}
-              size={'lg'}
-              alignItems={'center'}
+              size={"lg"}
+              alignItems={"center"}
             />
-
           )}
           name="linkdin"
           defaultValue=""
@@ -337,8 +315,7 @@ const Profile = ({ navigation }) => {
         </FormControl.ErrorMessage>
       </FormControl>
       <Button onPress={pickImage}>Choose Logo</Button>
-      <Button onPress={pickImage}>Make A card</Button>
-      </SafeAreaView>
+      <Button onPress={handleSubmit(onSubmit)}>Make A card</Button>
     </ScrollView>
   );
 };
